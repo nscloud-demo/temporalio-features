@@ -5,6 +5,7 @@ on: # rebuild any PRs and main branch changes
   push:
     branches:
       - main
+  workflow_dispatch: # Simplify testing when referenced workflows change.
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
