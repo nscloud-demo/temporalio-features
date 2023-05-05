@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest] #  windows-latest - like 8x slower. Excluded for now since we're just building.
+        os: [nscloud] #  windows-latest - like 8x slower. Excluded for now since we're just building.
     runs-on: ${{ matrix.os }}
     steps:
       - name: Print build information
@@ -32,7 +32,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest] #  windows-latest - like 8x slower. Excluded for now since we're just building.
+        os: [nscloud] #  windows-latest - like 8x slower. Excluded for now since we're just building.
     runs-on: ${{ matrix.os }}
     steps:
       - name: Print build information
@@ -48,7 +48,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest] #  windows-latest - like 8x slower. Excluded for now since we're just building.
+        os: [nscloud] #  windows-latest - like 8x slower. Excluded for now since we're just building.
     runs-on: ${{ matrix.os }}
     steps:
       - name: Print build information
@@ -65,7 +65,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest] #  windows-latest - like 8x slower. Excluded for now since we're just building.
+        os: [nscloud] #  windows-latest - like 8x slower. Excluded for now since we're just building.
     runs-on: ${{ matrix.os }}
     steps:
       - name: Print build information
