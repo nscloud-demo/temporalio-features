@@ -26,9 +26,9 @@ jobs:
       - name: fetch upstream
         run: |
           git remote add upstream https://github.com/temporalio/features.git
-          git fetch upstream master
+          git fetch upstream main
           git checkout -t origin/upstream
-          git rebase upstream/master
+          git rebase upstream/main
 
       - name: rebase patches
         run: |
@@ -38,17 +38,14 @@ jobs:
           git checkout -t origin/patches
           git rebase upstream
 
-      - name: update master
+      - name: sync master
         run: |
-          # master is recreated from scratch every time:
-          #  * start from patches
-          #  * delete irrelevant workflows
-          #  * switch to nscloud
-          # we do not rebase here since conflicts with deleted files are likely.
-
           git checkout master
           git reset --hard patches
+    
 
+      - name: update workflows
+        run: |
           # Remove tests that do not work in forks
           sed -n '/Test with Cloud/q;p' .github/workflows/docker-images.yaml > .github/workflows/docker-images-tmp.yaml
           mv .github/workflows/docker-images-tmp.yaml .github/workflows/docker-images.yaml
@@ -58,4 +55,10 @@ jobs:
 
           git add .
           git commit -m "Update workflows to run on nscloud."
-          git push --all -f origin
+
+      - name: push
+        run: |
+           # Push separately to trigger workflows on main.
+           git push -f origin upstream
+           git push -f origin patches
+           git push -f origin main
