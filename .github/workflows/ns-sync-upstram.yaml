@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: master
+          ref: main
           fetch-depth: 0
 
       - name: git config
@@ -38,12 +38,11 @@ jobs:
           git checkout -t origin/patches
           git rebase upstream
 
-      - name: sync master
+      - name: sync main
         run: |
-          git checkout master
+          git checkout main
           git reset --hard patches
     
-
       - name: update workflows
         run: |
           # Remove tests that do not work in forks
