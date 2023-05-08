@@ -17,6 +17,9 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          # Use a custom PAT to push to enable triggering on_push workflows:
+          # https://github.com/orgs/community/discussions/25702
+          token: ${{ secrets.PUSH_TOKEN }}
 
       - name: git config
         run: |
