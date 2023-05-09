@@ -54,8 +54,8 @@ jobs:
           git reset --hard patches
       - name: update workflows
         run: |
-          # Remove tests that do not work in forks
-          sed -n '/Test with Cloud/q;p' .github/workflows/docker-images.yaml > .github/workflows/docker-images-tmp.yaml
+          # Remove tests that depend on secrets (do not work in forks)
+          sed -n '/Test with Temporalite/q;p' .github/workflows/docker-images.yaml > .github/workflows/docker-images-tmp.yaml
           mv .github/workflows/docker-images-tmp.yaml .github/workflows/docker-images.yaml
 
           # Update them to run on nscloud.
