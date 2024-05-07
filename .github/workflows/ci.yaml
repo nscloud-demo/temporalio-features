@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   latest-sdk-versions:
-    runs-on: 'ubuntu-latest'
+    runs-on: nscloud
     outputs:
       go_latest: '1.26.1'
       typescript_latest: '1.9.3'
@@ -28,7 +28,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest] #  windows-latest - like 8x slower. Excluded for now since we're just building.
-    runs-on: ${{ matrix.os }}
+    runs-on: nscloud
     steps:
       - name: Print build information
         run: 'echo head_ref: "$GITHUB_HEAD_REF", ref: "$GITHUB_REF", os: ${{ matrix.os }}'
@@ -44,7 +44,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest] #  windows-latest - like 8x slower. Excluded for now since we're just building.
-    runs-on: ${{ matrix.os }}
+    runs-on: nscloud
     steps:
       - name: Print build information
         run: 'echo head_ref: "$GITHUB_HEAD_REF", ref: "$GITHUB_REF", os: ${{ matrix.os }}'
@@ -60,7 +60,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest] #  windows-latest - like 8x slower. Excluded for now since we're just building.
-    runs-on: ${{ matrix.os }}
+    runs-on: nscloud
     steps:
       - name: Print build information
         run: 'echo head_ref: "$GITHUB_HEAD_REF", ref: "$GITHUB_REF", os: ${{ matrix.os }}'
@@ -77,7 +77,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest] #  windows-latest - like 8x slower. Excluded for now since we're just building.
-    runs-on: ${{ matrix.os }}
+    runs-on: nscloud
     steps:
       - name: Print build information
         run: 'echo head_ref: "$GITHUB_HEAD_REF", ref: "$GITHUB_REF", os: ${{ matrix.os }}'
@@ -96,7 +96,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest] #  windows-latest - like 8x slower. Excluded for now since we're just building.
-    runs-on: ${{ matrix.os }}
+    runs-on: nscloud
     steps:
       - name: Print build information
         run: 'echo head_ref: "$GITHUB_HEAD_REF", ref: "$GITHUB_REF", os: ${{ matrix.os }}'

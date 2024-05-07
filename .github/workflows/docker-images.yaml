@@ -34,7 +34,7 @@ on:
 jobs:
   build-image:
     name: Build ${{ inputs.lang }} docker image
-    runs-on: ubuntu-latest
+    runs-on: nscloud
     env:
       TEMPORAL_CLOUD_ADDRESS: sdk-ci.a2dd6.tmprl.cloud:7233
       TEMPORAL_CLOUD_NAMESPACE: sdk-ci.a2dd6
